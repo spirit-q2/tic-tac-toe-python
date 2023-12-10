@@ -62,7 +62,6 @@ Like in the following board:
 | 1 | 2 | 3 |
 | - | - | - |
 | 4 | 5 | 6 |
-| - | - | - |
 | 7 | 8 | 9 |
 
 **Note:** you don't have to specify the player in the request body, the server will figure it out.
