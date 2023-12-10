@@ -68,7 +68,7 @@ def make_turn(game_id: int, body: NextTurnSchema):
     if not game:
         return jsonify({"error": "Game not found"}), 404
 
-    if game.status == GameStatus.done:
+    if game.status in [GameStatus.done, GameStatus.draw]:
         return jsonify({"error": "Game is over already"}), 409
 
     if game.board[body.position - 1] != ".":
@@ -82,9 +82,11 @@ def make_turn(game_id: int, body: NextTurnSchema):
     if winner or not any([el == "." for el in game.board]):
         # and we have a WINNER! or a draw :)
         game.ended_at = datetime.utcnow()
-        game.status = GameStatus.done
         if winner:
             game.winner = game.player1 if winner == PlayerMark.x else game.player2
+            game.status = GameStatus.done
+        else:
+            game.status = GameStatus.draw
 
     db.session.commit()
 

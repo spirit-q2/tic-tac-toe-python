@@ -124,7 +124,7 @@ def test_play_to_draw(client):
     assert response.json["board"] == ["xox", "oox", "xxo"]
 
     assert response.json["winner"] is None
-    assert response.json["status"] == GameStatus.done
+    assert response.json["status"] == GameStatus.draw
     assert response.json["ended_at"]
 
     # subsequent moves should trigger an error

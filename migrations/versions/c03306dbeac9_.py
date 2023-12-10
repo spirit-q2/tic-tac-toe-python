@@ -27,7 +27,7 @@ def upgrade():
     sa.Column('next_player', sa.Enum('x', 'o', name='playermark'), nullable=True),
     sa.Column('winner', sa.String(length=256), nullable=True),
     sa.Column('board', postgresql.ARRAY(sa.String(length=17)), nullable=True),
-    sa.Column('status', sa.Enum('in_progress', 'done', name='gamestatus'), nullable=False),
+    sa.Column('status', sa.Enum('in_progress', 'draw', 'done', name='gamestatus'), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     with op.batch_alter_table('games', schema=None) as batch_op:

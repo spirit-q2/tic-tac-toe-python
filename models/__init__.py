@@ -9,6 +9,7 @@ from app import db
 
 class GameStatus(str, enum.Enum):
     in_progress = "in_progress"
+    draw = "draw"
     done = "done"
 
 
