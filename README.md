@@ -87,7 +87,8 @@ Example response:
 Send a **GET** request to `http://localhost:5000/games/<game_id>`
 
 ### 5. To finish the game
-Repeat steps 3 until the game is finished. That is, until one of the players wins or the game ends in a draw.
+Repeat [step 3](#3-to-make-a-move) until the game is finished.
+That is, until one of the players wins or the game ends in a draw.
 
 Example response for a finished game:
 ```
